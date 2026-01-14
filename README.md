@@ -1,80 +1,80 @@
 # RZX.bio Conversion Tracking
 
-Plugin WordPress per tracciare le conversioni WooCommerce e attribuire i ricavi ai tuoi link RZX.bio automaticamente.
+A lightweight WordPress plugin that integrates WooCommerce with the RZX.bio conversion tracking system. Automatically attribute revenue to your RZX.bio links when customers complete purchases.
 
-## Requisiti
+## Requirements
 
 - WordPress 5.8+
 - WooCommerce 6.0+
 - PHP 7.4+
 
-## Installazione
+## Installation
 
-### Metodo 1: Download dalla Release
+### Method 1: Download from Release (Recommended)
 
-1. Vai su [Releases](../../releases)
-2. Scarica `rzx-conversion-tracking.zip` dall'ultima release
-3. In WordPress, vai su **Plugin → Aggiungi nuovo → Carica plugin**
-4. Seleziona il file zip e clicca **Installa ora**
-5. Attiva il plugin
+1. Go to [Releases](../../releases)
+2. Download `rzx-conversion-tracking.zip` from the latest release
+3. In WordPress, go to **Plugins → Add New → Upload Plugin**
+4. Select the zip file and click **Install Now**
+5. Activate the plugin
 
-### Metodo 2: Upload manuale
+### Method 2: Manual Upload
 
-1. Scarica o clona questo repository
-2. Copia la cartella `rzx-conversion-tracking` in `/wp-content/plugins/`
-3. Attiva il plugin dal pannello WordPress
+1. Download or clone this repository
+2. Copy the `rzx-conversion-tracking` folder to `/wp-content/plugins/`
+3. Activate the plugin from the WordPress admin panel
 
-## Configurazione
+## Configuration
 
-1. Vai su **WooCommerce → Impostazioni → RZX.bio**
-2. Inserisci la tua **API Key** (disponibile nella dashboard RZX.bio)
-3. Clicca **Test Connection** per verificare
-4. Abilita il tracking e salva
+1. Go to **WooCommerce → Settings → RZX.bio**
+2. Enter your **API Key** (available in your RZX.bio dashboard)
+3. Click **Test Connection** to verify
+4. Enable tracking and save
 
-## Come funziona
+## How It Works
 
 ```
-Visitatore clicca link RZX.bio
+Visitor clicks RZX.bio link
          ↓
-tuosito.com/prodotto?_rzx=12345
+yoursite.com/product?_rzx=12345
          ↓
-Plugin salva ID in cookie (30 giorni)
+Plugin stores ID in cookie (30 days)
          ↓
-Visitatore completa acquisto
+Visitor completes purchase
          ↓
-Plugin invia conversione a RZX.bio
+Plugin sends conversion to RZX.bio
          ↓
-Revenue attribuito al link corretto
+Revenue attributed to the correct link
 ```
 
-## Impostazioni disponibili
+## Settings
 
-| Impostazione | Descrizione |
-|--------------|-------------|
-| API Key | Chiave API RZX.bio (obbligatoria) |
-| Enable Tracking | Attiva/disattiva il tracciamento |
-| Track Product Details | Invia dettagli prodotti nei metadata |
-| Attribution Window | Finestra di attribuzione (24h / 7gg / 30gg) |
-| Debug Mode | Log in WooCommerce → Status → Logs |
+| Setting | Description |
+|---------|-------------|
+| API Key | Your RZX.bio API key (required) |
+| Enable Tracking | Enable/disable conversion tracking |
+| Track Product Details | Include product information in metadata |
+| Attribution Window | Attribution window (24h / 7 days / 30 days) |
+| Debug Mode | Log requests in WooCommerce → Status → Logs |
 
-## Compatibilità
+## Compatibility
 
 - ✅ HPOS (High-Performance Order Storage)
-- ✅ Checkout Blocks
+- ✅ Block Checkout
 - ✅ Classic Checkout
 - ✅ PHP 8.0 - 8.3
 - ✅ WordPress 6.7
 - ✅ WooCommerce 9.5
 
-## Struttura file
+## File Structure
 
 ```
 rzx-conversion-tracking/
-├── rzx-conversion-tracking.php       # File principale
+├── rzx-conversion-tracking.php       # Main plugin file
 ├── includes/
-│   ├── class-rzx-cookie-handler.php  # Gestione cookie
-│   ├── class-rzx-settings.php        # Pagina impostazioni
-│   └── class-rzx-tracker.php         # Invio conversioni
+│   ├── class-rzx-cookie-handler.php  # Cookie management
+│   ├── class-rzx-settings.php        # Settings page
+│   └── class-rzx-tracker.php         # Conversion tracking
 ├── assets/
 │   ├── css/admin.css
 │   └── js/admin.js
@@ -83,32 +83,56 @@ rzx-conversion-tracking/
 └── readme.txt
 ```
 
-## Hook per sviluppatori
+## Developer Hooks
+
+### Filters
 
 ```php
-// Modificare payload prima dell'invio
+// Modify payload before sending
 add_filter('rzx_conversion_payload', function($payload, $order) {
-    // modifica $payload
+    $payload['custom_field'] = 'value';
     return $payload;
 }, 10, 2);
 
-// Azione dopo invio riuscito
+// Modify metadata only
+add_filter('rzx_conversion_metadata', function($metadata, $order) {
+    $metadata['custom_data'] = $order->get_meta('my_field');
+    return $metadata;
+}, 10, 2);
+
+// Custom attribution window per order
+add_filter('rzx_attribution_window_hours', function($hours, $order) {
+    return 720; // 30 days
+}, 10, 2);
+```
+
+### Actions
+
+```php
+// After successful conversion
 add_action('rzx_conversion_sent', function($order, $response, $conversion_id) {
-    // fai qualcosa
+    // Do something after conversion is tracked
 }, 10, 3);
+
+// After error
+add_action('rzx_conversion_error', function($order, $error_message) {
+    // Handle error
+}, 10, 2);
 ```
 
 ## Changelog
 
 ### 1.1.0
-- Supporto completo HPOS e Block Checkout
-- Attribution window configurabile
-- Metadata estesi
-- Miglioramenti sicurezza cookie
+- Full HPOS and Block Checkout support
+- Configurable attribution window
+- Extended metadata (products, coupons, payment method)
+- Save conversion_id to order meta
+- Improved cookie security (httponly, samesite)
+- Compatibility with WordPress 6.7, WooCommerce 9.5, PHP 8.3
 
 ### 1.0.0
-- Release iniziale
+- Initial release
 
-## Licenza
+## License
 
 GPL v2 or later
