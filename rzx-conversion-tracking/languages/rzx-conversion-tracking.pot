@@ -1,0 +1,155 @@
+# Copyright (C) 2025 RZX.bio
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: RZX.bio Conversion Tracking 1.1.0\n"
+"Report-Msgid-Bugs-To: https://rzx.bio/support\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-15T00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI\n"
+"X-Domain: rzx-conversion-tracking\n"
+
+#: rzx-conversion-tracking.php
+msgid "RZX.bio Conversion Tracking"
+msgstr ""
+
+#: rzx-conversion-tracking.php
+msgid "WooCommerce is required for this plugin to work. Please install and activate WooCommerce."
+msgstr ""
+
+#: rzx-conversion-tracking.php
+msgid "Settings"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "RZX.bio"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Connection Status"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "WooCommerce is required"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Enter your API key to start tracking"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Connected to RZX.bio"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Invalid API key"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "API key configured - click Test Connection to verify"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "RZX.bio Conversion Tracking Settings"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Configure your RZX.bio conversion tracking settings. Get your API key from your RZX.bio dashboard."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "API Key"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Enter your RZX.bio API key."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Enable Tracking"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Enable conversion tracking for WooCommerce orders."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Track Product Details"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Include detailed product information in conversion data."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Attribution Window"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "How long after clicking a link should conversions be attributed."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "24 hours"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "7 days (recommended)"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "30 days"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Debug Mode"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Log API requests and responses in WooCommerce > Status > Logs."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Test Connection"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Click to verify your API key is valid and connection to RZX.bio is working."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Security check failed."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Permission denied."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "API key is not configured."
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Connection successful!"
+msgstr ""
+
+#: includes/class-rzx-settings.php
+msgid "Unknown error"
+msgstr ""
+
+#: assets/js/admin.js
+msgid "Testing..."
+msgstr ""
+
+#: assets/js/admin.js
+msgid "Connection failed:"
+msgstr ""
+
+#: assets/js/admin.js
+msgid "Please enter an API key first."
+msgstr ""
