@@ -1,0 +1,94 @@
+/**
+ * RZX.bio Conversion Tracking - Admin Styles
+ *
+ * @package RZX_Conversion_Tracking
+ */
+
+/* Status section */
+.rzx-status-section {
+	margin-bottom: 20px;
+	padding: 15px;
+	background: #fff;
+	border-left: 4px solid #ccc;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.rzx-status-section h3 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.rzx-status-section p {
+	margin-bottom: 0;
+	display: flex;
+	align-items: center;
+}
+
+/* Test connection button */
+#rzx-test-connection {
+	min-width: 120px;
+}
+
+#rzx-test-connection.loading {
+	opacity: 0.7;
+	pointer-events: none;
+}
+
+/* Test result messages */
+#rzx-test-result {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+#rzx-test-result.success {
+	background-color: #d4edda;
+	color: #155724;
+}
+
+#rzx-test-result.error {
+	background-color: #f8d7da;
+	color: #721c24;
+}
+
+#rzx-test-result.loading {
+	background-color: #fff3cd;
+	color: #856404;
+}
+
+/* Settings table enhancements */
+.woocommerce table.form-table th {
+	padding-left: 0;
+}
+
+/* API key field */
+#rzx_api_key {
+	font-family: monospace;
+}
+
+/* Description text */
+.woocommerce table.form-table .description {
+	margin-top: 5px;
+	color: #666;
+}
+
+/* Attribution window select */
+#rzx_attribution_window {
+	min-width: 200px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+	.rzx-status-section {
+		margin: 10px 0 20px;
+	}
+
+	#rzx-test-result {
+		display: block;
+		margin-top: 10px;
+		margin-left: 0 !important;
+	}
+}
